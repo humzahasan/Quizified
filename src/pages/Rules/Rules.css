@@ -1,0 +1,32 @@
+.modal {
+  width: 100%;
+  z-index: 11;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.modal {
+  background-color: #3f3c3999;
+  padding-top: 10%;
+}
+
+.md-title,
+.sm-title,
+.sm-text {
+  margin: 10px;
+}
+.modal-action {
+  text-align: center;
+}
+
+.modal-action > button {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 800;
+}
