@@ -3,6 +3,7 @@ import "./Landing.css";
 import Foodimg from "../../assets/food.jpg";
 import Movieimg from "../../assets/movie.jpg";
 import Rules from "../Rules/Rules";
+import { useQuiz } from "../../context/quiz-context";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 
@@ -11,11 +12,11 @@ const Landing = () => {
   const [selectedFood, setSelectedFood] = useState(false);
   const [showRules, setShowRules] = useState(false);
 
-  // const { username, category, setUsername, setCategory } = useQuiz();
+  const { username, category, setUsername, setCategory } = useQuiz();
 
   const getSelectedCategory = (category) => {
     console.log("here");
-    // setCategory(category);
+    setCategory(category);
     if (category === "food") {
       setSelectedFood(!selectedFood);
       setSelectedMovie(false);
@@ -73,17 +74,17 @@ const Landing = () => {
           </div>
           {(selectedFood || selectedMovie) && (
             <div className="landing-info">
-              {/* <p className="md-title">Selected Category : {category} </p> */}
+              <p className="md-title">Selected Category : {category} </p>
               <input
                 type="text"
                 placeholder="Enter Your Name"
                 className="input-box"
-                // value={username}
-                // onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
               <button
-                // disabled={!username}
-                // className={username ? "btn btn-primary" : "btn btn-disabled"}
+                disabled={!username}
+                className={username ? "btn btn-primary" : "btn btn-disabled"}
                 onClick={sendQuizInfo}
               >
                 Start Quiz
@@ -107,8 +108,8 @@ const Landing = () => {
       <Rules
         handleClose={backToLanding}
         showRules={showRules}
-        // category={category}
-        // username={username}
+        category={category}
+        username={username}
       />
     </>
   );

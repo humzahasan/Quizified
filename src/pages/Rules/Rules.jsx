@@ -1,12 +1,12 @@
 import React from "react";
-// import { useQuestion } from "../../context/question-context";
+import { useQuestion } from "../../context/question-context";
 import "./Rules.css";
 const Rules = ({ handleClose, showRules, username }) => {
   const showHideClassName = showRules
     ? "modal display-block"
     : "modal display-none";
 
-  // const { getQuiz } = useQuestion();
+  const { getQuiz } = useQuestion();
 
   return (
     <div className={showHideClassName}>
@@ -35,8 +35,9 @@ const Rules = ({ handleClose, showRules, username }) => {
           </section>
           {username && (
             <section className="modal-action">
-              {/* <button className="btn btn-primary" onClick={getQuiz}> */}
-              <button className="btn btn-primary">Procced To Quiz</button>
+              <button className="btn btn-primary" onClick={getQuiz}>
+                Procced To Quiz
+              </button>
             </section>
           )}
         </section>
