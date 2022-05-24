@@ -1,0 +1,7 @@
+@import url("https://feedyui.netlify.app/library/lib.css");
+
+:root {
+  --dark-primary-color: #282c34;
+  --dark-secondary-color: #20232a;
+  --darker-color: #16181d;
+}
