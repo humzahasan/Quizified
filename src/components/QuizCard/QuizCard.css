@@ -1,0 +1,7 @@
+.card {
+  width: 40rem;
+}
+
+.card > div {
+  margin: 2rem;
+}
