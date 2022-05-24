@@ -4,13 +4,14 @@ import "./App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { Landing, Leaderboard } from "./pages";
+import { Landing, Leaderboard, Questions } from "./pages";
 
 function App() {
   return (
     <div className="app">
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/questions" element={<Questions />} />{" "}
         <Route path="/leaderboard" element={<Leaderboard />} />
       </Routes>
       <ToastContainer
