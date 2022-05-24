@@ -1,0 +1,39 @@
+.result {
+  min-height: 100vh;
+  margin: 0;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.result-container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: fit-content;
+  text-align: center;
+}
+
+.card-text > p {
+  margin: 1rem;
+}
+
+.card-title {
+  font-size: 2rem;
+}
+
+.card-subtitle {
+  font-size: 1.5rem;
+}
+
+.card-content {
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+.cta-text {
+  font-size: 2rem;
+  font-weight: 700;
+}
