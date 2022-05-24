@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Footer, Header } from "../../components";
 import "./Leaderboard.css";
+import { database } from "../../config/firebase";
+import { getDocs, collection } from "firebase/firestore";
 
 const Leaderboard = () => {
+  const databaseRef = collection(database, "leaderboard");
+  const [leaderboard, setLeaderboard] = useState([]);
+
+  const getLeaderboard = async () => {
+    getDocs(databaseRef)
+      .then((snapshot) => {
+        let leaderboardArr = [];
+        snapshot.forEach((doc) => {
+          leaderboardArr.push({ ...doc.data(), id: doc.id });
+        });
+        leaderboardArr && sortScore(leaderboardArr);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const sortScore = (leaderboardArr) => {
+    leaderboardArr && leaderboardArr.sort((a, b) => b.result - a.result);
+    setLeaderboard(leaderboardArr);
+  };
+
+  useEffect(() => {
+    getLeaderboard();
+    sortScore();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="leaderboard">
       <Header />
@@ -18,12 +46,15 @@ const Leaderboard = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>User</td>
-              <td>Food</td>
-              <td>10</td>
-              <td>22nd May</td>
-            </tr>
+            {leaderboard &&
+              leaderboard.map((person) => (
+                <tr key={person.id}>
+                  <td>{person.username}</td>
+                  <td>{person.category}</td>
+                  <td>{person.result}</td>
+                  <td> {new Date(person.timestamp.toDate()).toDateString()}</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
