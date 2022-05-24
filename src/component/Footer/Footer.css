@@ -1,0 +1,25 @@
+.landing-footer {
+  background-color: var(--dark-primary-color);
+}
+
+.landing-footer > ul {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.landing-footer > ul > li,
+.landing-footer > ul > a {
+  font-size: 1.5rem;
+  list-style: none;
+  padding: 1rem;
+  margin: 1rem;
+  text-decoration: none;
+}
+
+.landing-footer > ul > li:first-child:hover,
+.landing-footer > ul > a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
