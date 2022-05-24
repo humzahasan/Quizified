@@ -1,9 +1,11 @@
 import "./App.css";
+import { Footer, Header } from "./component";
 
 function App() {
   return (
     <div className="app">
-      <h1 className="lg-title">Quizified</h1>
+      <Header />
+      <Footer />
     </div>
   );
 }

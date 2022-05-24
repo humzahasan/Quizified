@@ -1,0 +1,10 @@
+.landing-header {
+  width: 100%;
+  text-align: center;
+  background-color: var(--darker-color);
+}
+
+.landing-header > a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
